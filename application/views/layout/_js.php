@@ -1,5 +1,6 @@
 <script>
-    $('.notifikasi').delay('slow').slideDown('slow').delay(4000).slideUp(600);
+	$('.notifikasi').delay('slow').slideDown('slow').delay(4000).slideUp(600);
+
 </script>
 <!-- jQuery -->
 <script src="<?= base_url('assets/pluto/') ?>js/jquery.min.js"></script>
@@ -19,7 +20,11 @@
 <!-- nice scrollbar -->
 <script src="<?= base_url('assets/pluto/') ?>js/perfect-scrollbar.min.js"></script>
 <script>
-    var ps = new PerfectScrollbar('#sidebar');
+	var ps = new PerfectScrollbar('#sidebar');
+
+</script>
+<script>
+	$('#menghilang').delay('slow').slideDown('slow').delay(4000).slideUp(600);
 
 </script>
 <!-- custom js -->

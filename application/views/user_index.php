@@ -6,6 +6,9 @@
 			</div>
 		</div>
 	</div>
+	<div id="menghilang">
+		<?= $this->session->flashdata('alert') ?>
+	</div>
 	<div class="row">
 		<div class="col-md-12">
 			<div class="white_shd full margin_bottom_30">
@@ -41,13 +44,12 @@
 										<label class="col-sm-2 col-form-label fw-bold text-dark">Level</label>
 										<select name="level" class="form-control">
 											<option value="Admin">Admin</option>
-											<option value="Kontributor">User</option>
+											<option value="User">User</option>
 										</select>
 									</div>
 								</div>
 								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary"
-										data-dismiss="modal">Close</button>
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 									<button type="submit" class="btn btn-primary">Simpan</button>
 								</div>
 							</form>
@@ -74,11 +76,49 @@
 									<td><?= $key->nama ?></td>
 									<td><?= $key->level ?></td>
 									<td>
-										<a href="" onClick="return confirm('Apakah anda yakin menghapus data ini?')"
-											class="btn btn-square btn-danger m-2"><i class="fa fa-trash"></i>
+										<a href="<?php echo site_url('user/delete_data/'.$key->id_user); ?>"
+											onclick="return confirm('Apakah anda yakin menghapus data ini?')"
+											class="btn btn-sm btn-danger m-2"><i class="fa fa-trash"></i>
 										</a>
-										<a href="" class="btn btn-square btn-warning m-2"><i class="fa fa-edit"></i>
+										<a class="btn btn-sm btn-warning m-2" data-toggle="modal"
+											data-target="#edit<?= $key->id_user?>">
+											<i class="fa fa-pencil-square-o"></i>
 										</a>
+										<div class="modal fade" id="edit<?= $key->id_user?>" tabindex="-1"
+											aria-labelledby="exampleModalLabel" aria-hidden="true">
+											<div class="modal-dialog modal-md">
+												<div class="modal-content">
+													<div class="modal-header">
+														<h5 class="modal-title fw-bold" id="exampleModalLabel">Perbarui
+															Nama User</h5>
+													</div>
+													<form action="<?= base_url('user/update') ?>" method="post">
+														<input type="hidden" name="id_user" value="<?= $key->id_user?>">
+														<div class="modal-body mx-3">
+															<div class="row mb-3">
+																<label
+																	class="col-sm-2 col-form-label fw-bold">Nama</label>
+																<input type="text" class="form-control"
+																	value="<?= $key->nama?>" name="nama">
+															</div>
+															<div class="row mb-3">
+																<label
+																	class="col-sm-2 col-form-label fw-bold">Username</label>
+																<input type="text" class="form-control"
+																	value="<?= $key->username ?>" name="username"
+																	readonly>
+															</div>
+														</div>
+														<div class="modal-footer">
+															<button type="button" class="btn btn-secondary"
+																data-dismiss="modal">Close</button>
+															<button type="submit"
+																class="btn btn-primary">Simpan</button>
+														</div>
+													</form>
+												</div>
+											</div>
+										</div>
 									</td>
 								</tr>
 								<?php } ?>

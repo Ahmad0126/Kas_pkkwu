@@ -12,7 +12,16 @@ class User_model extends CI_Model {
         );
         $this->db->insert($this->_table,$data);
 	}
-    public function getwu_user($user){
-        return $this->db->get_where($this->_table, array('username' => $user))->row_array();
-    }
+  public function update(){
+      $where = array(
+          'id_user'   => $this->input->post('id_user')
+      );
+      $data = array(
+          'nama'      => $this->input->post('nama')
+      );
+      $this->db->update($this->_table,$data,$where);
+  }
+  public function getwu_user($user){
+      return $this->db->get_where($this->_table, array('username' => $user))->row_array();
+  }
 }

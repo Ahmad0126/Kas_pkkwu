@@ -21,13 +21,10 @@
 		<h4>General</h4>
 		<ul class="list-unstyled components">
 			<li class="active">
-				<a href="<?= base_url() ?>"><i class="fa fa-dashboard yellow_color"></i> <span>Dashboard</span></a>
+				<a href="<?= base_url() ?>"><i class="fa fa-home yellow_color"></i> <span>Dashboard</span></a>
 			</li>
 			<li>
-				<a href="<?= base_url('pemasukan') ?>"><i class="fa fa-calculator purple_color"></i> <span>Pemasukan</span></a>
-			</li>
-			<li>
-				<a href="<?= base_url('pengeluaran') ?>"><i class="fa fa-money green_color"></i> <span>Pengeluaran</span></a>
+				<a href="<?= base_url('transaksi') ?>"><i class="fa fa-money green_color"></i> <span>Transaksi</span></a>
 			</li>
 			<?php if($this->session->userdata('level') == 'Admin'){ ?>
 			<li>

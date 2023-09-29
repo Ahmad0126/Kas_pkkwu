@@ -19,19 +19,32 @@ class User extends CI_Controller {
         $cek = $this->db->get()->result_array();
         if($cek<>NULL){
             $this->session->set_flashdata('alert', '
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                <i class="fa fa-exclamation-circle me-2"></i>Username Sudah Ada.
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
+            <div class="alert alert-danger" role="alert">Username Sudah Ada</div>
             ');
             redirect('user');
         }
         $this->User_model->simpan(); 
         $this->session->set_flashdata('alert', '
-        <div class="alert alert-dark alert-dismissible fade show" role="alert">
-            <i class="fa fa-exclamation-circle me-2"></i>Berhasil DiTambah.
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
+        <div class="alert alert-success" role="alert">Berhasil Di Simpan</div>
+        ');
+        redirect('user');
+    }
+
+    public function delete_data($id){
+        $where = array(
+            'id_user'   => $id
+        );
+        $this->db->delete('user' ,$where);
+        $this->session->set_flashdata('alert','
+        <div class="alert alert-success" role="alert">Berhasil Menghapus User</div>
+        ');
+        redirect('user');
+    }
+
+    public function update(){
+        $this->User_model->update();
+        $this->session->set_flashdata('alert','
+        <div class="alert alert-success" role="alert">Berhasil Di edit</div>
         ');
         redirect('user');
     }

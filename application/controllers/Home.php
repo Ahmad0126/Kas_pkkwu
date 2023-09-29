@@ -5,10 +5,9 @@ class Home extends CI_Controller {
 	public function __construct(){
 		parent:: __construct();
 		$this->load->model('transaksi_model');
+    if($this->session->userdata('id') == null){ redirect(base_url('auth')); }
 	}
-
-	public function index()
-	{
+	public function index(){
 		$this->template->load('layout/template', 'dashboard', 'Dashboard');
 	}
 }

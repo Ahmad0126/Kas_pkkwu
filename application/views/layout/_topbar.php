@@ -9,9 +9,9 @@
 				<div class="icon_info">
 					<ul class="user_profile_dd">
 						<li>
-							<a class="dropdown-toggle" data-toggle="dropdown"><img class="img-responsive rounded-circle"
-									src="<?= base_url('assets/pluto/') ?>images/layout_img/user_img.jpg" alt="#" /><span class="name_user">John
-									David</span></a>
+							<a class="dropdown-toggle" data-toggle="dropdown"><img class="img-responsive rounded-circle" src="<?= base_url('assets/pluto/') ?>images/layout_img/user_img.jpg" alt="#" />
+								<span class="name_user"><?= $this->session->userdata('nama') ?></span>
+							</a>
 							<div class="dropdown-menu">
 								<a class="dropdown-item" href="profile.html">My Profile</a>
 								<a class="dropdown-item" href="settings.html">Settings</a>

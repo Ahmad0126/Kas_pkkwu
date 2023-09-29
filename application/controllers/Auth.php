@@ -36,4 +36,10 @@ class Auth extends CI_Controller {
             redirect(base_url('auth'));
         }
     }
+    public function logout(){
+        $user = array('level', 'id', 'nama', 'username');
+        $this->session->unset_userdata($user);
+        $this->session->sess_destroy();
+        redirect(base_url('auth'));
+    }
 }

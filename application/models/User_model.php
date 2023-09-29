@@ -12,4 +12,14 @@ class User_model extends CI_Model {
         );
         $this->db->insert('user',$data);
 	}
+
+    public function update(){
+        $where = array(
+            'id_user'   => $this->input->post('id_user')
+        );
+        $data = array(
+            'nama'      => $this->input->post('nama')
+        );
+        $this->db->update('user',$data,$where);
+    }
 }

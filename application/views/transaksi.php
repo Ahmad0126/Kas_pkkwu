@@ -45,12 +45,6 @@
 									</div>
 								</div>
 								<div class="row mb-3">
-									<label class="col-sm-2 col-form-label">Username</label>
-									<div class="col-sm-10">
-										<input type="text" class="form-control" name="username">
-									</div>
-								</div>
-								<div class="row mb-3">
 									<label class="col-sm-2 col-form-label">Jenis Transaksi</label>
 									<div class="col-sm-10">
 										<select name="jenis_transaksi" class="form-select mb-3 form-control"

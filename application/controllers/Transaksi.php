@@ -20,8 +20,8 @@ class Transaksi extends CI_Controller {
 			'keterangan'		=> $this->input->post('keterangan'),
 			'nominal'			=> $this->input->post('nominal'),
 			'tanggal'			=> $this->input->post('tanggal'),
-			'username'			=> $this->input->post('username'),
-			'jenis_transaksi'	=> $this->input->post('jenis_transaksi'),
+			'username'			=> $this->session->userdata('username'),
+			'jenis_transaksi'	=> $this->input->post('jenis_transaksi')
 		);
 		$this->db->insert('transaksi', $data);
 		redirect('transaksi');

@@ -9,7 +9,7 @@ class User extends CI_Controller {
 	}
     
 	public function index(){
-        $data['user'] = $this->db->get('user')->result();
+        $data['user'] = $this->User_model->get_user();
 		$this->template->load('layout/template', 'user_index', 'Dashboard', $data);
 	}
     

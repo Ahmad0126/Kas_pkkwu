@@ -3,6 +3,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class User_model extends CI_Model {
     protected $_table = 'user'; //nama tabel user
+    public function get_user(){
+        return $this->db->get($this->_table)->result();
+    }
 	public function simpan(){
         $data = array(
             'nama'       => $this->input->post('nama'),

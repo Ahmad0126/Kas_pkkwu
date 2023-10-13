@@ -3,7 +3,9 @@
 		<div class="full">
 			<button type="button" id="sidebarCollapse" class="sidebar_toggle"><i class="fa fa-bars"></i></button>
 			<div class="logo_section">
-				<a href="index.html"><img class="img-responsive" src="<?= base_url('assets/pluto/') ?>images/logo/logo.png" alt="#" /></a>
+			<marquee style="margin-top: 20px; color: light; font-family: sans-serif;">
+              <b class="text-light">Cepat Mudah Praktis efisien</b>
+             </marquee>
 			</div>
 			<div class="right_topbar">
 				<div class="icon_info">

@@ -1,12 +1,10 @@
 <div class="topbar">
 	<nav class="navbar navbar-expand-lg navbar-light">
 		<div class="full">
-			<button type="button" id="sidebarCollapse" class="sidebar_toggle"><i class="fa fa-bars"></i></button>
-			<div class="logo_section">
-			<marquee style="margin-top: 20px; color: light; font-family: sans-serif;">
-              <b class="text-light">Cepat Mudah Praktis efisien</b>
+			<button type="button" id="sidebarCollapse" class="sidebar_toggle "><i class="fa fa-bars"></i></button>
+			<marquee style="margin-top: 20px; color: light; font-family: sans-serif;" class="logo_section d-none d-md-inline-block">
+              <b class="text-light b">Selamat Datang <?= $this->session->userdata('nama');?> di Aplikasi Simple Kas dapatkan pengalaman Cepat Mudah Praktis dan efisien </b>
              </marquee>
-			</div>
 			<div class="right_topbar">
 				<div class="icon_info">
 					<ul class="user_profile_dd">

@@ -1760,6 +1760,10 @@ a[data-toggle="collapse"] {
     font-weight: 300;
 }
 
+.b{
+    font-family: cursive;
+}
+
 button.main_bt {
     float: none;
     margin: 0;
@@ -3428,3 +3432,4 @@ table.projects tr td:first-child {
 .background-total{
     background-color: #37ff00;
 }
+

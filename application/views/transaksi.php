@@ -13,7 +13,7 @@
 		<div class="col-md-12">
 			<div class="white_shd full margin_bottom_30">
 				<a class="btn btn-outline-primary m-2" data-toggle="modal" data-target="#exampleModal">
-					<i class="fa fa-plus text-dark fw-bold">
+					<i class="fa fa-plus text-dark fw-bold fs-sans">
 						Tambah Transaksi
 					</i>
 				</a>

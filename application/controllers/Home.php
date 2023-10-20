@@ -113,4 +113,14 @@ class Home extends CI_Controller {
 
         $this->fpdf->Output();
     }
+    public function profil(){
+        $data['user'] = $this->User_model->getwu_user($this->session->userdata('username'));
+		$this->template->load('layout/template', 'profil', 'Profil Anda', $data);
+    }
+    public function edit($what){
+        $data = array($what => $this->input->post('nama'));
+        $this->db->update('user', $data, array('id_user' => $this->session->userdata('id')));
+        $this->session->set_userdata('nama', $this->input->post('nama'));
+        redirect(base_url('home/profil'));
+    }
 }

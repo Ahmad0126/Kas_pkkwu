@@ -34,9 +34,12 @@
 					<div>
 						<p class="total_no text-light"><?php 
 							$pemasukan = "SELECT sum(nominal) as pemasukan FROM transaksi WHERE jenis_transaksi = 'Pemasukan' ORDER BY sum(nominal)";				
-							$tmasuk = $this->db->query($pemasukan)->row_array(); 
+							$tmasuk = $this->db->query($pemasukan)->row_array();
+							if($tmasuk['pemasukan'] == null){
+								$totalmasuk = 0;
+							}else{ $totalmasuk = $tmasuk['pemasukan']; }
 						?>
-						Rp. <?= number_format($tmasuk['pemasukan'],2); ?></p>
+						Rp. <?= number_format($totalmasuk,2); ?></p>
 						<p class="head_couter text-light">Total Pemasukan</p>
 					</div>
 				</div>
@@ -71,8 +74,11 @@
 						<p class="total_no text-light"><?php 
 							$pengeluaran = "SELECT sum(nominal) as pengeluaran FROM transaksi WHERE jenis_transaksi = 'Pengeluaran' ORDER BY sum(nominal)";
 							$tkeluar = $this->db->query($pengeluaran)->row_array(); 
+							if($tkeluar['pengeluaran'] == null){
+								$totalkeluar = 0;
+							}else{ $totalkeluar = $tkeluar['pengeluaran']; }
 						?>
-						Rp. <?= number_format($tkeluar['pengeluaran'],2); ?></p>
+						Rp. <?= number_format($totalkeluar,2); ?></p>
 						<p class="head_couter text-light"><strong>Total Pengeluaran</strong></p>
 					</div>
 				</div>
@@ -85,10 +91,7 @@
 				<div class="counter_no">
 					<div>
 						<p class="total_no text-dark fw-bold">
-						<?php
-						$pemasukan = $tmasuk['pemasukan'];
-						$pengeluaran = $tkeluar['pengeluaran']; ?>
-							Rp. <?= number_format($sisa = $pemasukan - $pengeluaran, 2); ?>
+							Rp. <?= number_format($totalmasuk - $totalkeluar, 2); ?>
 						</p>
 						<p class="head_couter text-dark fw-bold"><strong>Total Saldo</strong></p>
 					</div>

@@ -118,9 +118,40 @@ class Home extends CI_Controller {
 		$this->template->load('layout/template', 'profil', 'Profil Anda', $data);
     }
     public function edit($what){
-        $data = array($what => $this->input->post('nama'));
-        $this->db->update('user', $data, array('id_user' => $this->session->userdata('id')));
-        $this->session->set_userdata('nama', $this->input->post('nama'));
-        redirect(base_url('home/profil'));
+        if($what == 'password'){
+            $pass = $this->input->post('password');
+            $pl = $this->input->post('pl');
+            $pk = $this->input->post('pk');
+            $cek = $this->User_model->getwu_user($this->session->userdata('username'));
+            if($cek){
+                if(md5($pl) == $cek['password']){
+                    if($pass == $pk){
+                        $this->db->update('user', array('password' => md5($pass)), array('id_user' => $this->session->userdata('id')));
+                        $this->session->set_flashdata('alert', $this->template->notif('Password berhasil diubah!', 'success'));
+                        redirect(base_url('home/profil'));
+                    }else{
+                        $this->session->set_flashdata('pl_val', $pl);
+                        $this->session->set_flashdata('pp_val', $pass);
+                        $this->session->set_flashdata('pk_val', $pk);
+                        $this->session->set_flashdata('konf', 'Password Tidak Sama!');
+                        $this->session->set_flashdata('alert', $this->template->notif('Konfirmasi Password Baru Kembali!', 'danger'));
+                        redirect(base_url('home/profil'));
+                    }
+                }else{
+                    $this->session->set_flashdata('pl_val', $pl);
+                    $this->session->set_flashdata('pp_val', $pass);
+                    $this->session->set_flashdata('pk_val', $pk);
+                    $this->session->set_flashdata('password', 'Password Salah!');
+                    $this->session->set_flashdata('alert', $this->template->notif('Password Lama Salah!', 'danger'));
+                    redirect(base_url('home/profil'));
+                }
+            }
+        }else{
+            $data = array($what => $this->input->post('nama'));
+            $this->db->update('user', $data, array('id_user' => $this->session->userdata('id')));
+            $this->session->set_flashdata('alert', $this->template->notif('Nama berhasil diubah!', 'success'));
+            $this->session->set_userdata('nama', $this->input->post('nama'));
+            redirect(base_url('home/profil'));
+        }
     }
 }

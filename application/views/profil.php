@@ -1,3 +1,8 @@
+<div class="modal fade" id="alertmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<?= $this->session->flashdata('alert'); ?>
+	</div>
+</div>
 <div class="container-fluid">
 	<div class="row column_title">
 		<div class="col-md-12">
@@ -71,20 +76,22 @@
 				<h5 class="modal-title" id="exampleModalLabel">Ganti Password</h5>
 				<button class="btn-close" type="button" data-dismiss="modal" aria-label="Close"><i class="settings-close ti-close"></i></button>
 			</div>
-			<form action="<?= base_url('home/kjsdughus/password')?>" method="post">
+			<form action="<?= base_url('home/edit/password')?>" method="post">
 				<div class="modal-body">
-					<div class="form-floating mb-3">
-						<label for="floatingSelect">Password Lama</label>
-						<input type="text" name="pl" class="form-control" placeholder="Masukkan Password Lama">
-					</div>
-					<div class="form-floating mb-3">
-						<label for="floatingSelect">Password Baru</label>
-						<input type="text" name="pb" class="form-control" placeholder="Masukkan Password Baru">
-					</div>
-					<div class="form-floating mb-3">
-						<label for="floatingSelect">Konfirmasi Password Baru</label>
-						<input type="text" name="pk" class="form-control" placeholder="Masukkan Password Kembali Password Baru">
-					</div>
+				<div class="form-floating mb-3">
+					<label for="floatingInput">Password Lama</label>
+					<input required type="password" name="pl" class="form-control <?= $this->session->flashdata('password') != null?'is-invalid':'' ?>" value="<?= $this->session->flashdata('pl_val') != null? $this->session->flashdata('pl_val') : '' ?>" placeholder="Masukkan Password Lama" id="floatingInput">
+					<div class="invalid-feedback"><?= $this->session->flashdata('password') ?></div>
+				</div>
+				<div class="form-floating mb-3">
+					<label for="f2">Password Baru</label>
+					<input required type="password" name="password" class="form-control" value="<?= $this->session->flashdata('pp_val') != null? $this->session->flashdata('pp_val') : '' ?>" placeholder="Masukkan Password Baru" id="f2">
+				</div>
+				<div class="form-floating mb-3">
+					<label for="floatingPassword">Konfirmasi Password Baru</label>
+					<input required type="password" name="pk" class="form-control <?= $this->session->flashdata('konf') != null?'is-invalid':'' ?>" value="<?= $this->session->flashdata('pk_val') != null? $this->session->flashdata('pk_val') : '' ?>" placeholder="Masukkan Kembali Password Baru" id="floatingPassword">
+					<div class="invalid-feedback"><?= $this->session->flashdata('konf') ?></div>
+				</div>
 				</div>
 				<div class="modal-footer">
 					<button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>

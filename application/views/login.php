@@ -29,9 +29,11 @@
                         <h1>Login</h1>
                     </div>
                 </div>
-                <div class="mt-2 px-5">
-                  <?= $this->session->flashdata('alert') ?>
-                </div>
+                <div class="modal fade" id="alertmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                     <?= $this->session->flashdata('alert'); ?>
+                  </div>
+               </div>
                   <div class="login_form mt-2">
                      <form action="<?= base_url('auth/login') ?>" method="post">
                         <fieldset>

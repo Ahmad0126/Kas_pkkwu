@@ -1,11 +1,8 @@
-<script>
-	$('.notifikasi').delay('slow').slideDown('slow').delay(4000).slideUp(600);
-
-</script>
 <!-- jQuery -->
-<script src="<?= base_url('assets/pluto/') ?>js/jquery.min.js"></script>
+<script src="<?= base_url('assets/pluto/') ?>js/jquery-3.3.1.min.js"></script>
 <script src="<?= base_url('assets/pluto/') ?>js/popper.min.js"></script>
 <script src="<?= base_url('assets/pluto/') ?>js/bootstrap.min.js"></script>
+
 <!-- wow animation -->
 <script src="<?= base_url('assets/pluto/') ?>js/animate.js"></script>
 <!-- select country -->
@@ -21,12 +18,12 @@
 <script src="<?= base_url('assets/pluto/') ?>js/perfect-scrollbar.min.js"></script>
 <script>
 	var ps = new PerfectScrollbar('#sidebar');
-
-</script>
-<script>
 	$('#menghilang').delay('slow').slideDown('slow').delay(4000).slideUp(600);
-
+	<?php if($this->session->flashdata('alert') != null){ ?>
+    $('#alertmodal').modal("show");
+	<?php } ?>
 </script>
+
 <!-- custom js -->
 <script src="<?= base_url('assets/pluto/') ?>js/custom.js"></script>
 <script src="<?= base_url('assets/pluto/') ?>js/chart_custom_style1.js"></script>

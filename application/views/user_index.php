@@ -1,3 +1,8 @@
+<div class="modal fade" id="alertmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<?= $this->session->flashdata('alert'); ?>
+	</div>
+</div>
 <div class="container-fluid">
 	<div class="row column_title">
 		<div class="col-md-12">
@@ -5,9 +10,6 @@
 				<h2>Data User</h2>
 			</div>
 		</div>
-	</div>
-	<div id="menghilang">
-		<?= $this->session->flashdata('alert') ?>
 	</div>
 	<div class="row">
 		<div class="col-md-12">

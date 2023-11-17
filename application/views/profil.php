@@ -23,7 +23,7 @@
 						<div class="col-lg-12">
 							<div class="full dis_flex center_text">
 								<div class="profile_img"><img width="180" class="rounded-circle"
-										src="<?= base_url('assets/pluto/') ?>images/layout_img/user_img.jpg" alt="#" /></div>
+										src="<?= base_url('assets/pluto/') ?>images/layout_img/msg5.png" alt="#" /></div>
 								<div class="profile_contant">
 									<div class="contact_inner">
 										<h3><?= $user['nama'] ?> <button class="btn btn-primary" data-toggle="modal" type="button" data-target="#nama"><i class="fa fa-pencil"></i></button></h3>

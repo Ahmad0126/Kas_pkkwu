@@ -6,12 +6,13 @@ class User_model extends CI_Model {
     public function get_user(){
         return $this->db->get($this->_table)->result();
     }
-	public function simpan(){
+	public function simpan($namafoto){
         $data = array(
             'nama'       => $this->input->post('nama'),
             'username'   => $this->input->post('username'),
             'password'   => md5($this->input->post('password')),
             'level'      => $this->input->post('level'),
+            'foto'       => $namafoto,
         );
         $this->db->insert($this->_table,$data);
 	}

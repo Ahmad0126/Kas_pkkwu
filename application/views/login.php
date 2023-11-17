@@ -37,11 +37,11 @@
                         <fieldset>
                            <div class="field">
                               <label class="label_field">Username</label>
-                              <input type="text" name="username" placeholder="Username" />
+                              <input type="text" name="username" placeholder="Username" required autofocus/>
                            </div>
                            <div class="field invalid">
                               <label class="label_field">Password</label>
-                              <input type="password" name="password" placeholder="Password" class=""/>
+                              <input type="password" name="password" placeholder="Password" class="" required/>
                            </div>
                            <div class="field margin_0">
                               <label class="label_field hidden">hidden label</label>

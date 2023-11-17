@@ -26,7 +26,7 @@
 							<div class="modal-header">
 								<h5 class="modal-title fw-bold" id="exampleModalLabel">Tambah User</h5>
 							</div>
-							<form action="<?= base_url('user/simpan') ?>" method="post">
+							<form action="<?= base_url('user/simpan') ?>" method="post" enctype='multipart/form-data'>
 								<div class="modal-body mx-3">
 									<div class="row mb-3">
 										<label class="col-sm-2 col-form-label fw-bold text-dark">Nama</label>
@@ -41,6 +41,10 @@
 										<label class="col-sm-2 col-form-label fw-bold text-dark">Password</label>
 										<input type="password" class="form-control" placeholder="Password"
 											name="password" Required>
+									</div>
+									<div class="row mb-3">
+										<label class="col-sm-2 col-form-label fw-bold">Foto</label>
+										<input class="form-control" type="file" name="foto" accept="image/png, image/jpeg">
 									</div>
 									<div class="row mb-3">
 										<label class="col-sm-2 col-form-label fw-bold text-dark">Level</label>
@@ -60,13 +64,14 @@
 				</div>
 				<div class="table_section padding_infor_info">
 					<div class="table-responsive-sm">
-						<table class="table">
+						<table class="table table-striped table-bordered" id="example" style="width:100%">
 							<thead>
 								<tr>
 									<th>No</th>
 									<th>Username</th>
 									<th>Nama</th>
 									<th>Level</th>
+									<th>Foto</th>
 									<th>Aksi</th>
 								</tr>
 							</thead>
@@ -77,6 +82,8 @@
 									<td><?= $key->username ?></td>
 									<td><?= $key->nama ?></td>
 									<td><?= $key->level ?></td>
+									<td><a href="<?= base_url('assets/upload/profil/'.$key->foto) ?>" target="_blank">
+									<span class="tf-icons fa fa-search"></a></span></td>
 									<td>
 										<a href="<?php echo site_url('user/delete_data/'.$key->id_user); ?>"
 											onclick="return confirm('Apakah anda yakin menghapus data ini?')"

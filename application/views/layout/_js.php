@@ -18,6 +18,10 @@
 <script src="<?= base_url('assets/pluto/') ?>js/perfect-scrollbar.min.js"></script>
 <script>
 	var ps = new PerfectScrollbar('#sidebar');
+
+
+</script>
+<script>
 	$('#menghilang').delay('slow').slideDown('slow').delay(4000).slideUp(600);
 	<?php if($this->session->flashdata('alert') != null){ ?>
     $('#alertmodal').modal("show");
@@ -27,3 +31,10 @@
 <!-- custom js -->
 <script src="<?= base_url('assets/pluto/') ?>js/custom.js"></script>
 <script src="<?= base_url('assets/pluto/') ?>js/chart_custom_style1.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap4.min.js"></script>
+<script>
+		
+new DataTable('#example');
+</script>

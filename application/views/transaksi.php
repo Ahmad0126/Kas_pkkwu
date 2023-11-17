@@ -67,7 +67,7 @@
 				</div>
 				<div class="table_section padding_infor_info">
 					<div class="table-responsive-sm">
-						<table class="table">
+						<table class="table table-striped table-bordered" id="example" style="width:100%">
 							<thead>
 								<tr>
                                     <th scope="col">No</th>
